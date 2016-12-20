@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     CheckBox c1,c2;
     Button bt1;
+    ImageButton imgbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,17 +24,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         bt1 = (Button) findViewById(R.id.button);
         bt1.setOnClickListener(this);
+
+        imgbtn = (ImageButton) findViewById(R.id.imgbtn);
+        imgbtn.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if(c1.isChecked() && c2.isChecked())
-            Toast.makeText(this, "Check Box 1 & 2", Toast.LENGTH_LONG).show();
-        else if(c2.isChecked())
-            Toast.makeText(this, "Check Box 2", Toast.LENGTH_LONG).show();
-        else if(c1.isChecked())
-            Toast.makeText(this, "Check Box 1", Toast.LENGTH_LONG).show();
-        else
-            Toast.makeText(this, "Nothing", Toast.LENGTH_LONG).show();
+        switch (v.getId()) {
+            case R.id.button:
+                if(c1.isChecked() && c2.isChecked())
+                    Toast.makeText(this, "Check Box 1 & 2", Toast.LENGTH_LONG).show();
+                else if(c2.isChecked())
+                    Toast.makeText(this, "Check Box 2", Toast.LENGTH_LONG).show();
+                else if(c1.isChecked())
+                    Toast.makeText(this, "Check Box 1", Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(this, "Nothing", Toast.LENGTH_LONG).show();
+                break;
+            case R.id.imgbtn:
+                Toast.makeText(this, "Image Clicked", Toast.LENGTH_LONG).show();
+                break;
+        }
     }
 }
