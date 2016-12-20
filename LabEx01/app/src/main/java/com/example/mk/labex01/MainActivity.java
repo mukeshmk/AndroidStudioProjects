@@ -10,6 +10,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button b1, b2, b3;
+    TextView et;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         b2.setOnClickListener(this);
         b3 = (Button) findViewById(R.id.bt3);
         b3.setOnClickListener(this);
+
+        et = (TextView) findViewById(R.id.textid1);
     }
 
     @Override
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.bt1:
                 Toast.makeText(this, "Clicked Button 1 !!", Toast.LENGTH_SHORT).show();
+                et.setText("Hello User !!");
                 break;
             case R.id.bt2:
                 Toast.makeText(this, "Clicked Button 2 !!", Toast.LENGTH_SHORT).show();
