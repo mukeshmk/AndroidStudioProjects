@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:textColor="#888888"
-        android:text="Bye !!"/>
+        android:text="Click Something !!"/>
 
     <Button
         android:layout_width="match_parent"
@@ -34,6 +34,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:/>
+        android:text="Button 2"
+        android:id="@+id/bt2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Button 3"
+        android:id="@+id/bt3"/>
 
 </RelativeLayout>
