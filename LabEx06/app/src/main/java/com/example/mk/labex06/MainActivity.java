@@ -49,5 +49,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return super.onOptionsItemSelected(item);
     }
 
-    
+    @Override
+    public void onClick(View v) {
+
+        Progress = new ProgressDialog(this);
+        Progress.setMessage("Progress Bar");
+        Progress.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        Progress.setIndeterminate(false);
+        Progress.setProgress(0);
+        Progress.show();
+
+        final int TotalProgressTime = 100;
+        final Thread t = new Thread() {
+            public void run() {
+                int jumptime=0;
+
+                while(jumptime < TotalProgressTime) {
+                    try {
+                        sleep(200);
+                        jumptime += 5;
+                        Progress.setProgress(jumptime);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        t.start();
+    }
 }
