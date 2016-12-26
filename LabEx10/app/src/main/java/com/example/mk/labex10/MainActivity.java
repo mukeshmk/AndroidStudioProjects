@@ -3,16 +3,19 @@ package com.example.mk.labex10;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.wifi.WifiManager;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     final BluetoothAdapter mbt = BluetoothAdapter.getDefaultAdapter();
-    Button b1,b2,b3,w1,w2,w3;
+    Button b1,b2,b3,w1,w2,w3,c;
     String url, no;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         w2.setOnClickListener(this);
         w3 = (Button)findViewById(R.id.wf_disc);
         w3.setOnClickListener(this);
+        c = (Button)findViewById(R.id.cam);
+        c.setOnClickListener(this);
     }
 
     @Override
@@ -58,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.wf_disc:
 
                 break;
+            case R.id.cam:
+                Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(cameraIntent, 2);
+                break;
         }
     }
 
@@ -67,6 +76,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == 20){
             Toast.makeText(this,"Back",Toast.LENGTH_SHORT).show();
+        }
+        if(requestCode == 2)    {
+            Bitmap image = (Bitmap) data.getExtras().get("data");
+            ImageView imageView = (ImageView) findViewById(R.id.img);
+            imageView.setImageBitmap(image);
         }
     }
 }
