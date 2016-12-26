@@ -68,5 +68,5 @@
         android:layout_marginLeft="250dp"
         android:text="Disc"
         android:id="@+id/wf_disc"/>
-    
+
 </RelativeLayout>

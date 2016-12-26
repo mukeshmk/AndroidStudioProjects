@@ -1,7 +1,9 @@
 package com.example.mk.labex10;
 
 import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -46,10 +48,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(discoverbt,20);
                 break;
             case R.id.wf_on:
-
+                WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                wifi.setWifiEnabled(true);
                 break;
             case R.id.wf_off:
-
+                wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+                wifi.setWifiEnabled(false);
                 break;
             case R.id.wf_disc:
 
