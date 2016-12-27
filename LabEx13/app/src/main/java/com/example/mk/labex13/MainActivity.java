@@ -21,4 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+    public void execute(View v) {
+        Toast.makeText(this, "fab view!", Toast.LENGTH_SHORT).show();
+    }
 }
