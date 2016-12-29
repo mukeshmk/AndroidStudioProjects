@@ -14,13 +14,12 @@ import android.os.Bundle;
 import android.util.FloatMath;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
-    private SensorManager mSensorManager;
-    private Sensor mSensor;
+    private SensorManager mSensorManager, mSensorManager2;
+    private Sensor mSensor, mSensor2;
     private Camera camera;
     ImageView iv;
     private float[] mGravity;
@@ -34,7 +33,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
         mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        //iv = (ImageView) findViewById(R.id.iv);
+
+        mSensorManager2 = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensor2 = mSensorManager2.getDefaultSensor(Sensor.TYPE_PROXIMITY);
+        iv = (ImageView) findViewById(R.id.iv);
 
 
     }
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             mAccelCurrent = SensorManager.GRAVITY_EARTH;
             mAccelLast = SensorManager.GRAVITY_EARTH;
             mGravity = event.values.clone();
-            // Shake detection
+
             float x = mGravity[0];
             float y = mGravity[1];
             float z = mGravity[2];
@@ -54,24 +56,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             mAccelCurrent = (float) Math.sqrt(x*x + y*y + z*z);
             float delta = mAccelCurrent - mAccelLast;
             mAccel = mAccel * 0.9f + delta;
-            // Make this higher or lower according to how much
-            // motion you want to detect
+
             if(mAccel > 1){
                 Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(cameraIntent, 2);
-               /* if(camera==null)
-                {
-                    try{
-                        camera=Camera.
-                    }
-                }*/
-
-                // do something
             }
         }
         else if (event.sensor.getType() == Sensor.TYPE_PROXIMITY) {
             if (event.values[0] == 0) {
-                Toast.makeText(this, "button", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
@@ -111,11 +103,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onResume();
         mSensorManager.registerListener(this, mSensor,
                 SensorManager.SENSOR_DELAY_NORMAL);
+        mSensorManager2.registerListener(this, mSensor2,
+                SensorManager.SENSOR_DELAY_NORMAL);
     }
+
     protected void onPause() {
         super.onPause();
         mSensorManager.unregisterListener(this);
-
+        mSensorManager2.unregisterListener(this);
     }
-
 }
