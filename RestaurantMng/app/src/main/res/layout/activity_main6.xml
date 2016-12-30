@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+<RelativeLayout
+    android:id="@+id/activity_main6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mk.restaurantmng.Main6Activity"
+    android:background="@mipmap/back">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:src="@drawable/soup"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Soups"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_dark"
+        android:fontFamily="cursive"
+        android:layout_marginTop="150dp"
+
+        />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="190dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        >
+
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Cream Of Sweet Corn"
+            android:fontFamily="cursive"
+            android:id="@+id/cs1"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtys1"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="50dp"
+            android:hint="Enter Quantity"
+            >
+        </EditText>
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Cream of Mushroom"
+            android:fontFamily="cursive"
+            android:id="@+id/cs2"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtys2"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="50dp"
+            android:hint="Enter Quantity"/>
+
+    </GridLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Appetizers"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_dark"
+        android:fontFamily="cursive"
+        android:layout_marginTop="280dp"
+
+        />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="320dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        >
+
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Corn Cheese Balls"
+            android:fontFamily="cursive"
+            android:id="@+id/ca1"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtya1"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="40dp"
+            android:hint="Enter Quantity">
+        </EditText>
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Mozzarella Onion Rings"
+            android:fontFamily="cursive"
+            android:id="@+id/ca2"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtya2"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="40dp"
+            android:hint="Enter Quantity"/>
+
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Course"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_dark"
+        android:fontFamily="cursive"
+        android:layout_marginTop="410dp"
+
+        />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="440dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        >
+
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Spicy Baked Macaroni"
+            android:fontFamily="cursive"
+            android:id="@+id/cm1"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtym1"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="20dp"
+            android:hint="Enter Quantity">
+        </EditText>
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="American Mashed Potatoes"
+            android:fontFamily="cursive"
+            android:id="@+id/cm2"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtym2"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="20dp"
+            android:hint="Enter Quantity"/>
+
+    </GridLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dessert"
+        android:textSize="24sp"
+        android:textColor="@android:color/background_dark"
+        android:fontFamily="cursive"
+        android:layout_marginTop="530dp"
+
+        />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="560dp"
+        android:columnCount="2"
+        android:rowCount="4"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        >
+
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Hot Fudge Brownie"
+            android:fontFamily="cursive"
+            android:id="@+id/cd1"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtyd1"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="60dp"
+            android:hint="Enter Quantity">
+        </EditText>
+        <CheckBox
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="Fried Ice Cream"
+            android:fontFamily="cursive"
+            android:id="@+id/cd2"
+            />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/qtyd2"
+            android:fontFamily="cursive"
+            android:layout_marginLeft="60dp"
+            android:hint="Enter Quantity"/>
+
+
+    </GridLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="700dp"
+        android:layout_marginLeft="120dp"
+        android:text="Submit"
+        android:fontFamily="cursive"
+        android:id="@+id/order"/>
+
+
+
+</RelativeLayout>
+</ScrollView>
