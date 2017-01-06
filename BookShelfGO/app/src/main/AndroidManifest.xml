@@ -23,10 +23,11 @@
         </activity>
         <activity android:name=".Welcome" />
         <activity android:name=".SignUp" />
+        <activity android:name=".Success" />
         <activity android:name=".ScanQR" />
         <activity android:name=".ShoppingList" />
         <activity android:name=".BookDetails" />
-        <activity android:name=".AddtoCart"></activity>
+        <activity android:name=".AddtoCart" />
     </application>
 
 </manifest>

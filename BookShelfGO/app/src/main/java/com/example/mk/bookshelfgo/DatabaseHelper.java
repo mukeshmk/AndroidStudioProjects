@@ -37,7 +37,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // TODO Auto-generated method stub
         //Log.v(TAG, "CREATE TABLE CALL: " + CREATE_TABLE_CALL);
         db.execSQL(CREATE_TABLE_CALL);
-
     }
 
     @Override

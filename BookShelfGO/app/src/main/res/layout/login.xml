@@ -13,24 +13,24 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Book Shelf GO"
+        android:text="Book 'em"
         android:textSize="30dp"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="80dp"/>
+        android:layout_marginLeft="100dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:text="Enter your EMail Address:"/>
+        android:text="Enter your Email-id:"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:hint="email address"
+        android:hint="Email address"
         android:inputType="textEmailAddress"
         android:id="@+id/eml"/>
     <TextView
@@ -46,7 +46,7 @@
         android:layout_marginTop="220dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:hint="password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:id="@+id/pwd"/>
     <Button
@@ -55,7 +55,7 @@
         android:layout_marginTop="280dp"
         android:layout_marginLeft="120dp"
         android:layout_marginRight="40dp"
-        android:text="LogIn"
+        android:text="Login"
         android:id="@+id/login"/>
     <TextView
         android:layout_width="wrap_content"
@@ -63,7 +63,7 @@
         android:layout_marginTop="350dp"
         android:layout_marginLeft="60dp"
         android:layout_marginRight="40dp"
-        android:text="Click Bellow to Sign Up"
+        android:text="Click Below to Sign Up"
         android:textSize="20dp"/>
     <Button
         android:layout_width="wrap_content"

@@ -41,5 +41,5 @@
         android:layout_marginTop="410dp"
         android:layout_marginLeft="200dp"
         android:id="@+id/cancel"
-        android:text="Cancel"/>
+        android:text="Back"/>
 </RelativeLayout>

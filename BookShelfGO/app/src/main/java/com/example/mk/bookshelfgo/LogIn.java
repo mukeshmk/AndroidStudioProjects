@@ -50,7 +50,6 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
                 SharedPreferences sf=getSharedPreferences("cart", Context.MODE_PRIVATE);
                 SharedPreferences.Editor preferencesEditor = sf.edit();
 
-                preferencesEditor.putInt("int",0);
                 preferencesEditor.clear();
                 preferencesEditor.apply();
 

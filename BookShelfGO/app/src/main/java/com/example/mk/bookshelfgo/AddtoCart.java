@@ -4,6 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,7 +18,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class AddtoCart extends AppCompatActivity implements View.OnClickListener{
+public class AddtoCart extends AppCompatActivity implements View.OnClickListener , SensorEventListener {
 
     TextView t1, t2 ,t3;
     Button buy;
@@ -21,6 +26,13 @@ public class AddtoCart extends AppCompatActivity implements View.OnClickListener
     SharedPreferences sp;
     Books bk1 = new Books(), bk2  = new Books(), bk3 = new Books(), bk4 = new Books() ,bk5 = new Books();
     int b1, b2, b3, b4, b5;
+
+    private SensorManager mSensorManager;
+    private Sensor mSensor;
+    private float[] mGravity;
+    private float mAccel;
+    private float mAccelCurrent;
+    private float mAccelLast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +63,10 @@ public class AddtoCart extends AppCompatActivity implements View.OnClickListener
         b3 = sp.getInt("book2",0);
         bk3 = databaseHelper.getBooksByCode(b3);
         t3.setText(bk3.getName()+" "+bk3.getPrice());
+
+        mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        mSensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+
     }
 
     @Override
@@ -87,4 +103,55 @@ public class AddtoCart extends AppCompatActivity implements View.OnClickListener
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onSensorChanged(SensorEvent event) {
+
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            mAccel = 0.00f;
+            mAccelCurrent = SensorManager.GRAVITY_EARTH;
+            mAccelLast = SensorManager.GRAVITY_EARTH;
+            mGravity = event.values.clone();
+
+            float x = mGravity[0];
+            float y = mGravity[1];
+            float z = mGravity[2];
+            mAccelLast = mAccelCurrent;
+            mAccelCurrent = (float) Math.sqrt(x * x + y * y + z * z);
+            float delta = mAccelCurrent - mAccelLast;
+            mAccel = mAccel * 0.9f + delta;
+
+            if (mAccel > 1) {
+                Intent i = new Intent(this, Success.class);
+                startActivity(i);
+            }
+        }
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int i) {
+
+    }
+
+    protected void onResume() {
+        super.onResume();
+        mSensorManager.registerListener(this, mSensor,
+                SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    protected void onPause() {
+        super.onPause();
+        mSensorManager.unregisterListener(this);
+    }
+
+
+
+    public void showMessage(String title, String message)
+    {
+        AlertDialog.Builder b = new AlertDialog.Builder(this);
+        b.setCancelable(true);
+        b.setTitle(title);
+        b.setMessage(message);
+        b.show();
+    }
+
 }

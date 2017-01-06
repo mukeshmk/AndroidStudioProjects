@@ -110,7 +110,7 @@ public class ScanQR extends AppCompatActivity implements View.OnClickListener{
         switch (v.getId()) {
             case R.id.add:
                 Toast.makeText(this, "Book added !", Toast.LENGTH_SHORT).show();
-                edit.putInt("book"+Integer.toString(flag++), Integer.parseInt(barcodeInfo.toString()));
+                edit.putInt("book"+Integer.toString(flag++), Integer.parseInt(barcodeInfo.getText().toString()));
                 edit.commit();
                 break;
             case R.id.cancel:

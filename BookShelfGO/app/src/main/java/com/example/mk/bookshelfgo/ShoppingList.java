@@ -106,6 +106,7 @@ public class ShoppingList extends AppCompatActivity {
         b.setPrice("Rs. 3200");
         databaseHelper.createBook(b);
 
+
         bookList = databaseHelper.getAllBooks();
         adapter = new MyAdapter(ShoppingList.this, bookList);
         gridView.setAdapter(adapter);
