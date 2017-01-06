@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:src="@drawable/a"
+        android:id="@+id/img"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        />
+
+
+
+    <TextView
+        android:id="@+id/bname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sfgsdg"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/img"
+        android:background="@android:color/white"
+        android:paddingBottom="5dp"
+        />
+
+    <TextView
+        android:id="@+id/author"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sdfdf"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:textStyle="normal|italic"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bname"
+        android:background="@android:color/white"
+        android:paddingBottom="5dp"/>
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sdfdsf"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:textColor="@android:color/holo_blue_light"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/white"
+        android:layout_below="@+id/author"
+        android:paddingBottom="5dp"/>
+
+
+</RelativeLayout>
+
+
