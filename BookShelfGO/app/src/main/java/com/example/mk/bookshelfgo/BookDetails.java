@@ -1,6 +1,8 @@
 package com.example.mk.bookshelfgo;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -22,8 +24,11 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
             R.drawable.i, R.drawable.j,
             R.drawable.k, R.drawable.l,
     };
+    SharedPreferences sf;
+    SharedPreferences.Editor edit;
     String bname, author, price;
     int pos;
+    static int flag = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +57,9 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
         authortv.setText(author);
         pricetv.setText(price);
 
+        sf=getSharedPreferences("cart", Context.MODE_PRIVATE);
+        edit=sf.edit();
+
     }
 
     @Override
@@ -60,9 +68,13 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
         switch(v.getId())
         {
             case R.id.add:
+                Toast.makeText(this, "Book added !", Toast.LENGTH_SHORT).show();
+                edit.putInt("book"+Integer.toString(flag++),pos);
+                edit.commit();
                 break;
 
-            case R.id.btm: Intent i = new Intent(this, ShoppingList.class);
+            case R.id.btm:
+                Intent i = new Intent(this, ShoppingList.class);
                 this.startActivity(i);
         }
         
@@ -78,8 +90,10 @@ public class BookDetails extends AppCompatActivity implements View.OnClickListen
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+            case R.id.cart:
+                Toast.makeText(this, "Cart", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(this,AddtoCart.class);
+                startActivity(i1);
                 break;
             case R.id.logout:
                 Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();

@@ -49,8 +49,10 @@ public class Welcome extends AppCompatActivity implements View.OnClickListener{
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch (item.getItemId()) {
-            case R.id.profile:
-                Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+            case R.id.cart:
+                Toast.makeText(this, "Cart", Toast.LENGTH_SHORT).show();
+                Intent i1 = new Intent(this,AddtoCart.class);
+                startActivity(i1);
                 break;
             case R.id.logout:
                 Toast.makeText(this, "Log Out", Toast.LENGTH_SHORT).show();

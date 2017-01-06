@@ -2,6 +2,7 @@ package com.example.mk.bookshelfgo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -45,6 +46,13 @@ public class LogIn extends AppCompatActivity implements View.OnClickListener {
             case R.id.login:
                 u = eml.getText().toString().trim();
                 p = pwd.getText().toString().trim();
+
+                SharedPreferences sf=getSharedPreferences("cart", Context.MODE_PRIVATE);
+                SharedPreferences.Editor preferencesEditor = sf.edit();
+
+                preferencesEditor.putInt("int",0);
+                preferencesEditor.clear();
+                preferencesEditor.apply();
 
                 db=openOrCreateDatabase("emp", Context.MODE_PRIVATE,null);
                 Cursor c=db.rawQuery("SELECT * FROM users", null);
